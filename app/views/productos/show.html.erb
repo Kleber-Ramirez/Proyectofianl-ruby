@@ -1,0 +1,25 @@
+<% content_for :title, "Detalles del Producto" %>
+
+<div class="producto-details-container">
+  <h1 class="producto-details-header">Detalles del Producto</h1>
+
+  <% if notice %>
+    <p style="color: green;"><%= notice %></p>
+  <% end %>
+
+  <div class="producto-info">
+    <p><strong>ID:</strong> <%= @producto.id %></p> <!-- Mostrar el ID del producto -->
+    <p><strong>Nombre:</strong> <%= @producto.nombre %></p>
+    <p><strong>Descripción:</strong> <%= @producto.descripcion %></p>
+    <p><strong>Precio:</strong> <%= number_to_currency(@producto.precio) %></p>
+    <p><strong>Cantidad:</strong> <%= @producto.cantidad %></p>
+    <p><strong>Fecha Agregado:</strong> <%= @producto.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+  </div>
+
+  <div class="producto-actions">
+    <%= link_to "Editar este producto", edit_producto_path(@producto), class: "edit-producto-button" %> |
+    <%= link_to "Volver a productos", productos_path, class: "back-to-productos" %>
+    
+    <%= button_to "Eliminar este producto", @producto, method: :delete, data: { confirm: "¿Estás seguro de que deseas eliminar este producto?" }, class: "delete-producto-button" %>
+  </div>
+</div>

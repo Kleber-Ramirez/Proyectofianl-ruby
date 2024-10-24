@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Direccions" %>
+
+<h1>Direccions</h1>
+
+<div id="direccions">
+  <% @direccions.each do |direccion| %>
+    <%= render direccion %>
+    <p>
+      <%= link_to "Show this direccion", direccion %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New direccion", new_direccion_path %>

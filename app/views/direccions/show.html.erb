@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @direccion %>
+
+<div>
+  <%= link_to "Edit this direccion", edit_direccion_path(@direccion) %> |
+  <%= link_to "Back to direccions", direccions_path %>
+
+  <%= button_to "Destroy this direccion", @direccion, method: :delete %>
+</div>

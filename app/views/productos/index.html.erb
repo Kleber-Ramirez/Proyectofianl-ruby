@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Productos" %>
+
+<h1>Productos</h1>
+
+<div id="productos">
+  <% if @productos.any? %>
+    <% @productos.each do |producto| %>
+      <div class="producto">
+        <p><strong>ID:</strong> <%= producto.id %></p> <!-- Mostrar el ID del producto -->
+        <p><strong>Nombre:</strong> <%= producto.nombre %></p>
+        <p><strong>Descripción:</strong> <%= producto.descripcion %></p>
+        <p><strong>Precio:</strong> <%= producto.precio %></p>
+        <p><strong>Cantidad:</strong> <%= producto.cantidad %></p>
+        <p><strong>Fecha agregado:</strong> <%= producto.fecha_agregado.strftime("%Y-%m-%d %H:%M:%S") %></p>
+        <p>
+          <%= link_to "Show this producto", producto %>
+        </p>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No products found.</p> <!-- Mostrar un mensaje si no hay productos -->
+  <% end %>
+</div>
+
+<%= link_to "New producto", new_producto_path %> <!-- Enlace para crear un nuevo producto -->

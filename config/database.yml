@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: postgres  # Tu usuario por defecto
+  password: "2305"    # Tu contraseña
+  pool: 5
+
+development:
+  <<: *default
+  database: gestion_development
+
+test:
+  <<: *default
+  database: gestion_test
+
+production:
+  <<: *default
+  database: gestion_production

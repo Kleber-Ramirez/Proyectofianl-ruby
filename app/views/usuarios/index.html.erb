@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Usuarios" %>
+
+<h1>Usuarios</h1>
+
+<div id="usuarios">
+  <% if @usuarios.any? %>
+    <% @usuarios.each do |usuario| %>
+      <div class="usuario">
+        <p><strong>ID:</strong> <%= usuario.id %></p> <!-- Mostrar el ID del usuario -->
+        <p><strong>Nombre:</strong> <%= usuario.nombre %></p>
+        <p><strong>Email:</strong> <%= usuario.email %></p>
+        <p><strong>Fecha de creación:</strong> <%= usuario.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+        <p><strong>Activo:</strong> <%= usuario.activo ? 'Sí' : 'No' %></p>
+        <p>
+          <%= link_to "Show this usuario", usuario %>
+        </p>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No users found.</p>
+  <% end %>
+  
+  <div class="new-usuario-link">
+    <%= link_to "New usuario", new_usuario_path %>
+  </div>
+</div>
